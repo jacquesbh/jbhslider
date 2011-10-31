@@ -1,5 +1,5 @@
 /**
- * JbhSlider, a simple jQuery slider. v1.0.4.1
+ * JbhSlider, a simple jQuery slider. v1.0.5
  *
  * http://jbhslider.projects.bodin-hullin.net/
  *
@@ -21,14 +21,14 @@
  *  ***
  *
  * @author Jacques Bodin-Hullin <http://www.bodin-hullin.net>
- * @version 1.0.4.1
+ * @version 1.0.5
  */
 
 if (!jQuery.fn.jbhSlider) {
 
     (function($) {
 
-        var version = '1.0.4.1';
+        var version = '1.0.5';
 
         var settings = {
             init: function (slider) {},
@@ -54,6 +54,7 @@ if (!jQuery.fn.jbhSlider) {
                 type: null /* numbers, bullets, custom, NULL */,
                 text: '{{page}}',
                 cssClass: 'jbhSliderPages',
+                id: null,
                 currentCssClass: 'current',
                 tag: 'ol',
                 subTag: 'li',
@@ -63,6 +64,7 @@ if (!jQuery.fn.jbhSlider) {
             navigation: {
                 active: true,
                 cssClass: 'jbhSliderNavigation',
+                id: null,
                 loop: true,
                 tag: 'ul',
                 subTag: 'li',
@@ -96,7 +98,7 @@ if (!jQuery.fn.jbhSlider) {
 
                 /* Get elements */
                 $this = this;
-                $ul = $this.find(sets.selector);
+                $ul = (sets.selector != null) ? $this.find(sets.selector) : $this;
                 $liList = $ul.find(sets.elements.selector);
 
                 /* Basics attributes */
@@ -148,6 +150,10 @@ if (!jQuery.fn.jbhSlider) {
                 /* Functions */
                 var transition = null;
                 var init = null;
+
+                if (!sets.selector) {
+                    sets.transition.type = 'fade';
+                }
 
                 switch (sets.transition.type) {
 
@@ -259,6 +265,10 @@ if (!jQuery.fn.jbhSlider) {
                 var $pagination = $('<'+sets.pagination.tag+'></'+sets.pagination.tag+'>');
                 $pagination.addClass(sets.pagination.cssClass);
 
+                if (sets.pagination.id) {
+                    $pagination.attr('id', sets.pagination.id);
+                }
+
                 sets.pagination.element = $pagination;
 
                 switch (sets.pagination.type) {
@@ -301,6 +311,9 @@ if (!jQuery.fn.jbhSlider) {
                     }
                     sets.pagination.elements[i-1] = $link;
                 }
+                if (sets.pagination.subTag != null && sets.pagination.subTag.length > 0) {
+                    $pagination.find(sets.pagination.subTag + ':first').addClass(sets.pagination.currentCssClass);
+                }
                 sets.pagination.last = $pagination.find('a:first').addClass(sets.pagination.currentCssClass);
 
 
@@ -325,6 +338,10 @@ if (!jQuery.fn.jbhSlider) {
                 /* Navigation */
                 var $navigation = $('<'+sets.navigation.tag+'></'+sets.navigation.tag+'>');
                 $navigation.addClass(sets.navigation.cssClass);
+
+                if (sets.navigation.id) {
+                    $navigation.attr('id', sets.navigation.id);
+                }
 
                 sets.navigation.element = $navigation;
 
@@ -472,7 +489,13 @@ if (!jQuery.fn.jbhSlider) {
                 var sets = this.data('settings');
                 if (sets.pagination.last.data('to') != $to) {
                     sets.pagination.last.removeClass(sets.pagination.currentCssClass);
+                    if (sets.pagination.subTag != null && sets.pagination.subTag.length > 0) {
+                        sets.pagination.last.parent().removeClass(sets.pagination.currentCssClass);
+                    }
                     sets.pagination.last = $to.data('pager').addClass(sets.pagination.currentCssClass);
+                    if (sets.pagination.subTag != null && sets.pagination.subTag.length > 0) {
+                        $to.data('pager').parent().addClass(sets.pagination.currentCssClass);
+                    }
                 }
             },
 
