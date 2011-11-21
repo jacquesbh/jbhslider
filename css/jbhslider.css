@@ -1,0 +1,94 @@
+body {
+    padding-top: 60px;
+}
+.download {
+    padding-top: 20px;
+}
+.download .large {
+    font-size: 22px;
+    padding: 20px 30px 20px;
+}
+
+.slider {
+    margin-left: 22px;
+}
+
+.jbhSlider ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.jbhSliderNavigation {
+    list-style-type: none;
+    float: left;
+}
+
+.jbhSliderNavigation li {
+    display: inline-block;
+    margin: 3px 3px 3px 0;
+}
+
+.jbhSliderNavigation li a {
+    padding: 3px 5px 5px 5px;
+    font-size: 9.75px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background-color: #BFBFBF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.jbhSliderNavigation li a:hover {
+    background: #666666;
+    text-decoration: none;
+}
+
+.jbhSliderPages {
+    float: right;
+    list-style-type: none;
+}
+
+.jbhSliderPages li {
+    display: inline-block;
+    margin: 3px 0 3px 3px;
+}
+
+.jbhSliderPages li a {
+    padding: 3px 5px 5px 5px;
+    font-size: 9.75px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background-color: #BFBFBF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.jbhSliderPages li a:hover {
+    background: #666666;
+    text-decoration: none;
+}
+
+.jbhSliderPages li.current a {
+    background-color: red;
+}
+
+.jbhSliderNavigation.custom li a {
+    padding: 0;
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.example {
+    margin-top: 20px;
+    border-top: 1px dashed black;
+    padding-top: 20px;
+}

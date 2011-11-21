@@ -1,1 +1,457 @@
-My GitHub Page
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>JbhSlider</title>
+        <meta name="description" content="A full customizable jQuery slider" />
+        <meta name="author" content="Jacques Bodin-Hullin" />
+
+        <!--[if lt IE 9]>
+            <script src="js/html5.js"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/jbhslider.css" />
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jbh_slider.min.js"></script>
+
+        <link href="js/prettify/prettify.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="js/prettify/prettify.js"></script>
+    </head>
+
+    <body onload="prettyPrint();">
+
+        <a href="https://github.com/jacquesbh/jbhslider"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10001;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+        <div class="topbar">
+            <div class="fill">
+                <div class="container">
+                    <a class="brand" href="#">JbhSlider</a>
+                    <ul class="nav">
+                        <li><a href="#download">Download</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                        <li><a href="#quickinstall">Quick install</a></li>
+                        <li><a href="#documentation">Documentation</a></li>
+                        <li><a href="http://www.bodin-hullin.net/">About &amp; Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="hero-unit">
+                <h1>JbhSlider<small>, the simple way to slide</small></h2>
+                <p class="download"><a class="btn large success" href="https://github.com/jacquesbh/jbhslider/tarball/master">Download</a></p>
+            </div>
+
+            <div class="row" id="examples">
+                <div class="span16">
+                    <h1>Examples</h1>
+
+                    <hr/>
+                    <div class="row">
+                        <div class="span7">
+
+                            <h2>Default slider</h2>
+
+                            <p>This slider is the default configuration.</p>
+                            <h3>HTML</h3>
+<pre class="prettyprint">
+&lt;div id=&quot;default_slider&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+                            <h3>Javascript</h3>
+<pre class="prettyprint">
+jQuery('#default_slider').jbhSlider();
+</pre>
+                        </div>
+                        <div class="span9">
+                            <div class="slider" id="default_slider">
+                                <ul>
+                                    <li><img src="http://placehold.it/500x250/26c877/ffffff" /></li>
+                                    <li><img src="http://placehold.it/500x250/d53221/ffffff" /></li>
+                                    <li><img src="http://placehold.it/500x250/47c8f3/ffffff" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            // <![CDATA[
+                            jQuery('#default_slider').jbhSlider();
+                            // ]]>
+                        </script>
+                    </div>
+
+                    <hr/>
+                    <div class="row">
+                        <div class="span7">
+
+                            <h2>Be simple, just slide</h2>
+
+                            <p>This slider is a little bit configurated.</p>
+                            <ol>
+                                <li>Timer to 5 seconds</li>
+                                <li>Slide duration to 0.5 second</li>
+                                <li>Horizontal slide</li>
+                                <li>Simple pagination</li>
+                            </ol>
+
+                            <h3>HTML</h3>
+<pre class="prettyprint">
+&lt;div id=&quot;simple_slider&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</pre>
+
+                            <h3>Javascript</h3>
+<pre class="prettyprint">
+jQuery('#simple_slider').jbhSlider({
+    transition: {
+        type: 'horizontal-left',
+        timer: 5000
+    },
+    pagination: {
+        type: 'bullets'
+    }
+});
+</pre>
+
+                        </div>
+                        <div class="span9 slider">
+                            <div class="slider" id="simple_slider">
+                                <ul>
+                                    <li><img src="http://placehold.it/500x250/26c877/ffffff" /></li>
+                                    <li><img src="http://placehold.it/500x250/d53221/ffffff" /></li>
+                                    <li><img src="http://placehold.it/500x250/47c8f3/ffffff" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            // <![CDATA[
+                            jQuery('#simple_slider').jbhSlider({
+                                transition: {
+                                    type: 'horizontal-left',
+                                    timer: 5000
+                                },
+                                pagination: {
+                                    type: 'bullets'
+                                }
+                            });
+                            // ]]>
+                        </script>
+                    </div>
+
+                    <hr/>
+                    <div class="row">
+                        <div class="span7">
+
+                            <h2>Perfect control</h2>
+
+                            <p>This slider is a little bit configurated.</p>
+                            <ol>
+                                <li>No timer</li>
+                                <li>Slide duration to 2 seconds</li>
+                                <li>Horizontal slide</li>
+                                <li>No navigation</li>
+                                <li>Default &amp; custom pagination</li>
+                            </ol>
+
+                        </div>
+                        <div class="span9 slider">
+                            <div class="slider" id="control_slider">
+                                <ul>
+                                    <li><img src="http://placehold.it/500x250/26c877/ffffff" /></li>
+                                    <li><img src="http://placehold.it/500x250/d53221/ffffff" /></li>
+                                    <li><img src="http://placehold.it/500x250/47c8f3/ffffff" /></li>
+                                </ul>
+                            </div>
+                            <ul class="jbhSliderNavigation custom" id="control_navigation">
+                                <li><a href="#" rel="1"><img src="http://placehold.it/30x20/26c877/ffffff" /></a></li>
+                                <li><a href="#" rel="2"><img src="http://placehold.it/30x20/d53221/ffffff" /></a></li>
+                                <li><a href="#" rel="3"><img src="http://placehold.it/30x20/47c8f3/ffffff" /></a></li>
+                            </ul>
+                        </div>
+                        <script type="text/javascript">
+                            // <![CDATA[
+                            jQuery('#control_slider').jbhSlider({
+                                init: function (slider) {
+                                    jQuery('#control_navigation a').click(function () {
+                                        slider.jbhSlider('slide', jQuery(this).attr('rel'));
+                                        return false;
+                                    });
+                                },
+                                transition: {
+                                    type: 'horizontal-left',
+                                    timer: -1
+                                },
+                                pagination: {
+                                    type: 'bullets'
+                                },
+                                navigation: {
+                                    active: false
+                                }
+                            });
+                            // ]]>
+                        </script>
+                    </div>
+
+                    <div class="row">
+                        <div class="span16">
+                            <h3>HTML</h3>
+<pre class="prettyprint">
+&lt;div id=&quot;control_slider&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;img src=&quot;http://placehold.it/500x250&quot; /&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;ul id=&quot;control_navigation&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; rel=&quot;1&quot;&gt;&lt;img src=&quot;http://placehold.it/30x20&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; rel=&quot;2&quot;&gt;&lt;img src=&quot;http://placehold.it/30x20&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot; rel=&quot;3&quot;&gt;&lt;img src=&quot;http://placehold.it/30x20&quot; /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="span10">
+                            <h3>Javascript</h3>
+<pre class="prettyprint">
+jQuery('#control_slider').jbhSlider({
+    init: function (slider) {
+        jQuery('#control_navigation a').click(function () {
+            slider.jbhSlider('slide', jQuery(this).attr('rel'));
+            return false;
+        });
+    },
+    transition: {
+        type: 'horizontal-left',
+        timer: -1
+    },
+    pagination: {
+        type: 'bullets'
+    },
+    navigation: {
+        active: false
+    }
+});
+</pre>
+                        </div>
+                        <div class="span6">
+                            <h3>Triggers</h3>
+                            <p>With <strong>JbhSlider</strong>, you can custom easily all triggered actions.</p>
+                            <p>Before slide, on success slide or simply for the slider initialization.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- end examples -->
+
+            <div class="row" id="documentation">
+                <div class="span16">
+                    <h1>Documentation</h1>
+
+                    <hr/>
+                    <div class="row">
+                        <div class="span16">
+                            <h2>Default settings</h2>
+<pre class="prettyprint">
+var settings = {
+    init: function (slider) {},
+    selector: '> ul',
+    cssClass: 'jbhSlider',
+    elements: {
+        selector: '> li',
+        cssClass: 'jbhSliderItem'
+    },
+    css: {
+        width: 500,
+        height: 250
+    },
+    transition: {
+        type: 'fade',
+        duration: 1000,
+        timer: 3000,
+        actionStopTimer: true,
+        before: function (slider, to, transition) {transition();},
+        success: function (slider, to) {}
+    },
+    pagination: {
+        type: null,
+        text: '{{page}}',
+        cssClass: 'jbhSliderPages',
+        id: null,
+        currentCssClass: 'current',
+        tag: 'ol',
+        subTag: 'li',
+        position: 'after',
+        container: null
+    },
+    navigation: {
+        active: true,
+        cssClass: 'jbhSliderNavigation',
+        id: null,
+        loop: true,
+        tag: 'ul',
+        subTag: 'li',
+        next: {
+            text: '&gt;',
+            cssClass: 'jbhSliderNavigationNext'
+        },
+        previous: {
+            text: '&lt;',
+            cssClass: 'jbhSliderNavigationPrevious'
+        },
+        position: 'after',
+        container: null
+    }
+};
+</pre>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span16">
+                            <h2>The different settings</h2>
+                            <div class="row">
+                                <div class="span16">
+                                    <h3>Triggers</h3>
+<pre class="prettyprint">
+var settings = {
+    init: function (slider) {}, // Method call on slider loading
+    transition: {
+        before: function (slider, to, transition) {transition();}, // Method call before sliding
+        success: function (slider, to) {} // Method call after sliding
+    }
+};
+</pre>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span16">
+                                    <h3>The slides</h3>
+<pre class="prettyprint">
+var settings = {
+    elements: {
+        selector: '> li', // Selector wich permits to reach the second level. The class "current" will be applied. Can be NULL.
+        cssClass: 'jbhSliderItem' // CSS class applied to slides
+    }
+};
+</pre>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span16">
+                                    <h3>Cascading Style Sheets</h3>
+<pre class="prettyprint">
+var settings = {
+    css: {
+        width: 500, // Slider width
+        height: 250 // Slider height
+        // You can add every CSS properties wich will be applied to slides and slider.
+    }
+};
+</pre>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span16">
+                                    <h3>Transition</h3>
+<pre class="prettyprint">
+var settings = {
+    transition: {
+        type: 'fade', // It can be : horizontal-left or horizontal-right
+        duration: 1000, // Effect duration
+        timer: 3000, // Time between two slides, put -1 for disable the automatic sliding
+        actionStopTimer: true, // Indicate if a simple clic stops the automatic sliding
+        before: function (slider, to, transition) {transition();}, // Method call before sliding (trigger section)
+        success: function (slider, to) {} // Method call after sliding (trigger section)
+    }
+};
+</pre>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span16">
+                                    <h3>Pagination</h3>
+<pre class="prettyprint">
+var settings = {
+    pagination: {
+        type: null, // Can be : numbers, bullets, custom
+                    // NULL    : No pagination
+                    // numbers : displays "1 2 3 4"
+                    // bullets : displays "&bull; &bull; &bull; &bull;"
+                    // custom  : displays "1 2 3 4" by default
+        text: '{{page}}', // Text used with the "custom" pagination type
+        cssClass: 'jbhSliderPages', // CSS class applied to the pagination
+        id: null, // id applied to the pagination (nothing if NULL)
+        currentCssClass: 'current', // CSS class applied to the current page
+        tag: 'ol', // HTML tag for the main pagination container
+        subTag: 'li', // HTML tag used to frame the pagination links. The CSS class 'currentCssClass' will be applied.
+                      // Can be empty or NULL, in this cases no supplementary tags are used to frame the pagination links.
+        position: 'after', // Can be : before
+                           // Indicates if the pagination block will be placed before of after the slider.
+        container: null // Identifier of the container for the pagination block (nothing by default)
+    }
+};
+</pre>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span16">
+                                    <h3>Navigation</h3>
+<pre class="prettyprint">
+var settings = {
+    navigation: {
+        active: true, // Enable or disable the navigation
+        cssClass: 'jbhSliderNavigation', // CSS class added to the navigation
+        id: null, // id applied to the navigation (nothing if null)
+        loop: true, // Indicates if the previous and next links can be used for loop
+        tag: 'ul', // HTML tag of the main container of the navigation
+        subTag: 'li', // HTML tag used to frame the navigation links
+                      // Can be empty or NULL, in this cases no supplementary tags are used to frame the navigation links.
+
+        // Parameters for the "next" link
+        next: {
+            text: '&gt;', // HTML text used for the next link
+            cssClass: 'jbhSliderNavigationNext' // CSS class
+        },
+
+        // Parameters for the "previous" link
+        previous: {
+            text: '&lt;', // HTML text used for the next link
+            cssClass: 'jbhSliderNavigationPrevious' // CSS class
+        },
+
+        position: 'after', // Can be : before
+                           // Indicates if the navigation block will be placed before or after the slider.
+        container: null // Identifier of the container for the navigation block (nothing by default)
+    }
+};
+</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <p>&copy; 2011 - Jacques Bodin-Hullin</p>
+            </footer>
+
+        </div> <!-- /container -->
+
+    </body>
+</html>
