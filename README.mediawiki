@@ -1,5 +1,4 @@
-= JbhSlider, a simple jQuery slider =
+= JbhSlider, the simple way to slide =
 
-# Website : http://jbhslider.projects.bodin-hullin.net/
-# Github  : https://github.com/jacquesbh/jbhslider
+# Website : https://jacquesbh.github.com/jbhslider/
 
