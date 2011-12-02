@@ -1,4 +1,4 @@
 = JbhSlider, the simple way to slide =
 
-# Website : https://jacquesbh.github.com/jbhslider/
+# Website : http://jacquesbh.github.com/jbhslider/
 
