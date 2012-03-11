@@ -1,5 +1,5 @@
 /**
- * JbhSlider, a simple jQuery slider. v1.0.5
+ * JbhSlider, a simple jQuery slider. v1.0.5.1
  *
  * http://jbhslider.projects.bodin-hullin.net/
  *
@@ -21,7 +21,7 @@
  *  ***
  *
  * @author Jacques Bodin-Hullin <http://www.bodin-hullin.net>
- * @version 1.0.5
+ * @version 1.0.5.1
  */
 
 if (!jQuery.fn.jbhSlider) {
