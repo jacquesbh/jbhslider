@@ -325,7 +325,8 @@ var settings = {
         timer: 3000,
         actionStopTimer: true,
         before: function (slider, to, transition) {transition();},
-        success: function (slider, to) {}
+        success: function (slider, to) {},
+        maxZIndex: 300
     },
     pagination: {
         type: null,
@@ -415,7 +416,8 @@ var settings = {
         timer: 3000, // Time between two slides, put -1 for disable the automatic sliding
         actionStopTimer: true, // Indicate if a simple clic stops the automatic sliding
         before: function (slider, to, transition) {transition();}, // Method call before sliding (trigger section)
-        success: function (slider, to) {} // Method call after sliding (trigger section)
+        success: function (slider, to) {} // Method call after sliding (trigger section),
+        maxZIndex: 300 // Count for maximum z-index for the fade effect. The z-index is reset when the limit is exceeded
     }
 };
 </pre>
