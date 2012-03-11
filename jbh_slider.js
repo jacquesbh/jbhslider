@@ -28,7 +28,7 @@ if (!jQuery.fn.jbhSlider) {
 
     (function($) {
 
-        var version = '1.0.5';
+        var version = '1.0.5.1';
 
         var settings = {
             init: function (slider) {},
@@ -48,7 +48,8 @@ if (!jQuery.fn.jbhSlider) {
                 timer: 3000,
                 actionStopTimer: true,
                 before: function (slider, to, transition) {transition();},
-                success: function (slider, to) {}
+                success: function (slider, to) {},
+                maxZIndex: 300
             },
             pagination: {
                 type: null /* numbers, bullets, custom, NULL */,
@@ -245,6 +246,16 @@ if (!jQuery.fn.jbhSlider) {
                             }, sets.transition.duration, function () {
                                 to.css('z-index', ++sets.data.zIndex);
                                 slider.jbhSlider('_transitionSuccess', from, to);
+                                var count = slider.data('count');
+
+                                // Check z-index maximum
+                                var zIndexMax = sets.transition.maxZIndex; // It's max + items count
+                                if (sets.data.zIndex > (zIndexMax + count)) {
+                                    for (i = 0; i <= count-1; i++) {
+                                        $(sets.data.liList[i]).css('z-index', $(sets.data.liList[i]).css('z-index') - zIndexMax);
+                                    }
+                                    sets.data.zIndex = count + 1;
+                                }
                             });
                         };
                     break;
