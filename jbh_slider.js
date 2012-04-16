@@ -49,7 +49,8 @@ if (!jQuery.fn.jbhSlider) {
                 actionStopTimer: true,
                 before: function (slider, to, transition) {transition();},
                 success: function (slider, to) {},
-                maxZIndex: 300
+                maxZIndex: 300,
+                repeat: -1
             },
             pagination: {
                 type: null /* numbers, bullets, custom, NULL */,
@@ -127,6 +128,7 @@ if (!jQuery.fn.jbhSlider) {
                     settings: sets,
                     jbhSliderInit: true,
                     count: count,
+                    repetitions: 0,
                     current: $($liList[0]),
                     to: null
                 });
@@ -466,6 +468,19 @@ if (!jQuery.fn.jbhSlider) {
             _transitionSuccess: function (from, to) {
                 this.data('settings').transition.success(this, to);
                 this.data('current', to);
+                if (this.data('timer') != null) {
+                    this.jbhSlider('_updateRepetitions', from, to);
+                }
+            },
+
+            _updateRepetitions : function(from , to) {
+                var liList = this.data('settings').data.liList;
+                if((to.data('pos') == 1) && (from.data('pos') == liList.length)) {
+                    this.data('repetitions', this.data('repetitions') + 1);
+                    if(this.data('repetitions') == this.data('settings').transition.repeat) {
+                        this.jbhSlider('_killTimer');
+                    }
+                }
             },
 
             _stopAnim: function (to) {
