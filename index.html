@@ -139,6 +139,7 @@ jQuery('#default_slider').jbhSlider();
                                 <li>Slide duration to 0.5 second</li>
                                 <li>Horizontal slide</li>
                                 <li>Simple pagination</li>
+                                <li>3 loops</li>
                             </ol>
 
                             <h4>HTML</h4>
@@ -157,7 +158,9 @@ jQuery('#default_slider').jbhSlider();
 jQuery('#simple_slider').jbhSlider({
     transition: {
         type: 'horizontal-left',
-        timer: 5000
+        duration: 500,
+        timer: 5000,
+        repeat: 3
     },
     pagination: {
         type: 'bullets'
@@ -180,7 +183,9 @@ jQuery('#simple_slider').jbhSlider({
                             jQuery('#simple_slider').jbhSlider({
                                 transition: {
                                     type: 'horizontal-left',
-                                    timer: 5000
+                                    duration: 500,
+                                    timer: 5000,
+                                    repeat: 3
                                 },
                                 pagination: {
                                     type: 'bullets'
@@ -231,6 +236,7 @@ jQuery('#simple_slider').jbhSlider({
                                 },
                                 transition: {
                                     type: 'horizontal-left',
+                                    duration: 2000,
                                     timer: -1
                                 },
                                 pagination: {
@@ -277,6 +283,7 @@ jQuery('#control_slider').jbhSlider({
     },
     transition: {
         type: 'horizontal-left',
+        duration: 2000,
         timer: -1
     },
     pagination: {
@@ -326,7 +333,8 @@ var settings = {
         actionStopTimer: true,
         before: function (slider, to, transition) {transition();},
         success: function (slider, to) {},
-        maxZIndex: 300
+        maxZIndex: 300,
+        repeat: -1
     },
     pagination: {
         type: null,
@@ -416,8 +424,9 @@ var settings = {
         timer: 3000, // Time between two slides, put -1 for disable the automatic sliding
         actionStopTimer: true, // Indicate if a simple clic stops the automatic sliding
         before: function (slider, to, transition) {transition();}, // Method call before sliding (trigger section)
-        success: function (slider, to) {} // Method call after sliding (trigger section),
-        maxZIndex: 300 // Count for maximum z-index for the fade effect. The z-index is reset when the limit is exceeded
+        success: function (slider, to) {}, // Method call after sliding (trigger section)
+        maxZIndex: 300, // Count for maximum z-index for the fade effect. The z-index is reset when the limit is exceeded
+        repeat: -1 // How many loops (-1 = no limit)
     }
 };
 </pre>
@@ -488,8 +497,21 @@ var settings = {
                 </div>
             </div>
 
+            <div class="row" id="contribs">
+                <div class="span16">
+                    <h2>Contributors</h2>
+
+                    <hr />
+                    <ul>
+                        <li>Repeat option: <a href="https://github.com/davidkaminsky">davidkaminsky</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+
             <footer>
-                <p>&copy; 2011 - Jacques Bodin-Hullin</p>
+                <p>&copy; 2012 - Jacques Bodin-Hullin</p>
             </footer>
 
         </div> <!-- /container -->
