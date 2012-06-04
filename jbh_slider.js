@@ -36,7 +36,11 @@ if (!jQuery.fn.jbhSlider) {
             cssClass: 'jbhSlider',
             elements: {
                 selector: '> li',
-                cssClass: 'jbhSliderItem'
+                cssClass: 'jbhSliderItem',
+                css: {
+                    width: 500,
+                    height: 250
+                }
             },
             css: {
                 width: 500,
@@ -109,7 +113,7 @@ if (!jQuery.fn.jbhSlider) {
                          overflow: 'hidden'
                      }));
                 $liList.addClass(sets.elements.cssClass);
-
+                
                 /* More than one li ? */
                 if ($liList.length < 2) {
                     return $this;
@@ -172,7 +176,7 @@ if (!jQuery.fn.jbhSlider) {
                                 left: 0,
                                 width: sets.css.width * count
                             }));
-                            sets.data.liList.css($.extend({}, sets.css, {
+                            sets.data.liList.css($.extend({}, sets.elements.css, {
                                 'float': 'left'
                             }));
                             $(sets.data.liList[0]).css({
@@ -201,7 +205,7 @@ if (!jQuery.fn.jbhSlider) {
                                 right: 0,
                                 width: sets.css.width * count
                             }));
-                            sets.data.liList.css($.extend({}, sets.css, {
+                            sets.data.liList.css($.extend({}, sets.elements.css, {
                                 'float': 'right'
                             }));
                             $(sets.data.liList[0]).css({
@@ -226,7 +230,7 @@ if (!jQuery.fn.jbhSlider) {
                             sets.data.ul.css($.extend({}, sets.css, {
                                 position: 'relative'
                             }));
-                            sets.data.liList.css($.extend({}, sets.css, {
+                            sets.data.liList.css($.extend({}, sets.elements.css, {
                                 position: 'absolute',
                                 top: 0,
                                 left: 0,
