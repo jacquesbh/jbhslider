@@ -1,5 +1,5 @@
 /**
- * JbhSlider, a simple jQuery slider. v1.0.5.1
+ * JbhSlider, a simple jQuery slider. v1.0.5.2
  *
  * http://jbhslider.projects.bodin-hullin.net/
  *
@@ -21,14 +21,14 @@
  *  ***
  *
  * @author Jacques Bodin-Hullin <http://www.bodin-hullin.net>
- * @version 1.0.5.1
+ * @version 1.0.5.2
  */
 
 if (!jQuery.fn.jbhSlider) {
 
     (function($) {
 
-        var version = '1.0.5.1';
+        var version = '1.0.5.2';
 
         var settings = {
             init: function (slider) {},
@@ -37,10 +37,7 @@ if (!jQuery.fn.jbhSlider) {
             elements: {
                 selector: '> li',
                 cssClass: 'jbhSliderItem',
-                css: {
-                    width: 500,
-                    height: 250
-                }
+                css: {}
             },
             css: {
                 width: 500,
@@ -113,7 +110,7 @@ if (!jQuery.fn.jbhSlider) {
                          overflow: 'hidden'
                      }));
                 $liList.addClass(sets.elements.cssClass);
-                
+
                 /* More than one li ? */
                 if ($liList.length < 2) {
                     return $this;
@@ -176,7 +173,7 @@ if (!jQuery.fn.jbhSlider) {
                                 left: 0,
                                 width: sets.css.width * count
                             }));
-                            sets.data.liList.css($.extend({}, sets.elements.css, {
+                            sets.data.liList.css($.extend({}, (Object.keys(sets.elements.css).length ? sets.elements.css : sets.css), {
                                 'float': 'left'
                             }));
                             $(sets.data.liList[0]).css({
@@ -205,7 +202,7 @@ if (!jQuery.fn.jbhSlider) {
                                 right: 0,
                                 width: sets.css.width * count
                             }));
-                            sets.data.liList.css($.extend({}, sets.elements.css, {
+                            sets.data.liList.css($.extend({}, (Object.keys(sets.elements.css).length ? sets.elements.css : sets.css), {
                                 'float': 'right'
                             }));
                             $(sets.data.liList[0]).css({
@@ -230,7 +227,7 @@ if (!jQuery.fn.jbhSlider) {
                             sets.data.ul.css($.extend({}, sets.css, {
                                 position: 'relative'
                             }));
-                            sets.data.liList.css($.extend({}, sets.elements.css, {
+                            sets.data.liList.css($.extend({}, (Object.keys(sets.elements.css).length ? sets.elements.css : sets.css), {
                                 position: 'absolute',
                                 top: 0,
                                 left: 0,
