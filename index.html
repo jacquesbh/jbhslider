@@ -711,6 +711,96 @@ var settings = {
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="span16">
+                            <h3>How to select slider elements</h3>
+<pre class="prettyprint">
+/**
+ * The slider
+ */
+var slider = $('slider_id');
+
+// The settings
+slider.data('settings');
+
+// Elements count
+slider.data('count');
+
+// The current slide/element
+slider.data('current');
+
+// Previous and next slide/element
+slider.data('previous'); // element or null
+slider.data('next'); // element or null
+
+// Mouse over the slider?
+slider.data('mouseIn'); // bool
+
+/**
+ * Some access via the settings
+ */
+var settings = slider.data('settings');
+
+// All elements
+settings.data.liList; // bad name... I know :D
+
+// The current zIndex for the fade effect
+settings.data.zIndex;
+
+/**
+ * With the current slide... lot of data
+ */
+var element = slider.data('current');
+
+// Position of the slide
+element.data('position');
+
+// Is first? Last?
+element.data('first'); // bool
+element.data('last'); // bool
+
+// The pager link for this element
+element.data('pager');
+
+// The slider of course :)
+element.data('slider');
+
+/**
+ * With the pager link
+ */
+var pagerLink = element.data('pager');
+
+// The linked element
+pagerLink.data('to'); // element
+
+// The slider of course :)
+pagerLink.data('slider');
+
+/**
+ * The pagination
+ */
+var pagination = slider.data('settings').pagination.element;
+
+// The pagination elements
+slider.data('settings').pagination.elements;
+
+/**
+ * The navigation
+ */
+var navigation = slider.data('settings').navigation.element;
+
+// The previous link
+slider.data('settings').navigation.previous.link;
+
+// The next link
+slider.data('settings').navigation.next.link;
+
+// For previous and next links, you can get the slider of course ;)
+slider.data('settings').navigation.previous.link.data('slider');
+slider.data('settings').navigation.next.link.data('slider');
+</pre>
+                        </div>
+                    </div>
                 </div>
             </div>
 
