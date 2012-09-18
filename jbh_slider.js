@@ -48,6 +48,7 @@ if (!jQuery.fn.jbhSlider) {
                 duration: 1000,
                 timer: 3000,
                 actionStopTimer: true,
+                mouseHoverStop: true,
                 before: function (slider, to, transition) {transition();},
                 success: function (slider, to) {},
                 maxZIndex: 300,
@@ -146,7 +147,7 @@ if (!jQuery.fn.jbhSlider) {
 
                 /* Mouse events */
                 $this.hover(function () {
-                    $(this).data('mouseIn', true);
+                    $(this).data('mouseIn', $.data('settings').transition.mouseHoverStop);
                 }, function () {
                     $(this).data('mouseIn', false);
                 });
