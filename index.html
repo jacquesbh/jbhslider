@@ -531,6 +531,7 @@ var settings = {
         duration: 1000,
         timer: 3000,
         actionStopTimer: true,
+        mouseHoverStop: true,
         before: function (slider, to, transition) {transition();},
         success: function (slider, to) {},
         maxZIndex: 300,
@@ -640,6 +641,7 @@ var settings = {
         duration: 1000, // Effect duration
         timer: 3000, // Time between two slides, put -1 for disable the automatic sliding
         actionStopTimer: true, // Indicate if a simple clic stops the automatic sliding
+        mouseHoverStop: true, // Indicates if the transition will stop or not when the mouse hovers on the slider
         before: function (slider, to, transition) {transition();}, // Method call before sliding (trigger section)
         success: function (slider, to) {}, // Method call after sliding (trigger section)
         maxZIndex: 300, // Count for maximum z-index for the fade effect. The z-index is reset when the limit is exceeded
