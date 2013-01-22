@@ -147,7 +147,7 @@ if (!jQuery.fn.jbhSlider) {
 
                 /* Mouse events */
                 $this.hover(function () {
-                    $(this).data('mouseIn', $.data('settings').transition.mouseHoverStop);
+                    $(this).data('mouseIn', $(this).data('settings').transition.mouseHoverStop);
                 }, function () {
                     $(this).data('mouseIn', false);
                 });
