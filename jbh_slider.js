@@ -1,7 +1,7 @@
 /**
  * JbhSlider, a simple jQuery slider. v1.0.5.2
  *
- * http://jbhslider.projects.bodin-hullin.net/
+ * http://jacques.sh/jbhslider/
  *
  *  ***
  *
@@ -20,7 +20,7 @@
  *
  *  ***
  *
- * @author Jacques Bodin-Hullin <http://www.bodin-hullin.net>
+ * @author Jacques Bodin-Hullin <http://jacques.sh>
  * @version 1.0.5.2
  */
 
