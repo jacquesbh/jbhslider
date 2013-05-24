@@ -172,7 +172,8 @@ if (!jQuery.fn.jbhSlider) {
                                 position: 'absolute',
                                 top: 0,
                                 left: 0,
-                                width: sets.css.width * count
+                                width: sets.css.width * count,
+                                display: 'block'
                             }));
                             sets.data.liList.css($.extend({}, (Object.keys(sets.elements.css).length ? sets.elements.css : sets.css), {
                                 'float': 'left'
@@ -201,7 +202,8 @@ if (!jQuery.fn.jbhSlider) {
                                 position: 'absolute',
                                 top: 0,
                                 right: 0,
-                                width: sets.css.width * count
+                                width: sets.css.width * count,
+                                display: 'block'
                             }));
                             sets.data.liList.css($.extend({}, (Object.keys(sets.elements.css).length ? sets.elements.css : sets.css), {
                                 'float': 'right'
@@ -226,7 +228,8 @@ if (!jQuery.fn.jbhSlider) {
                         init = function (slider) {
                             var sets = slider.data('settings');
                             sets.data.ul.css($.extend({}, sets.css, {
-                                position: 'relative'
+                                position: 'relative',
+                                display: 'block'
                             }));
                             sets.data.liList.css($.extend({}, (Object.keys(sets.elements.css).length ? sets.elements.css : sets.css), {
                                 position: 'absolute',
@@ -244,22 +247,23 @@ if (!jQuery.fn.jbhSlider) {
                             to.stop(true);
                             from.animate({
                                 opacity: 0
-                            }, sets.transition.duration);
-                            to.animate({
-                                opacity: 1
-                            }, sets.transition.duration, function () {
-                                to.css('z-index', ++sets.data.zIndex);
-                                slider.jbhSlider('_transitionSuccess', from, to);
-                                var count = slider.data('count');
+                            }, sets.transition.duration/2, function() {
+                                to.animate({
+                                    opacity: 1
+                                }, sets.transition.duration/2, function () {
+                                    to.css('z-index', ++sets.data.zIndex);
+                                    slider.jbhSlider('_transitionSuccess', from, to);
+                                    var count = slider.data('count');
 
-                                // Check z-index maximum
-                                var zIndexMax = sets.transition.maxZIndex; // It's max + items count
-                                if (sets.data.zIndex > (zIndexMax + count)) {
-                                    for (i = 0; i <= count-1; i++) {
-                                        $(sets.data.liList[i]).css('z-index', $(sets.data.liList[i]).css('z-index') - zIndexMax);
+                                    // Check z-index maximum
+                                    var zIndexMax = sets.transition.maxZIndex; // It's max + items count
+                                    if (sets.data.zIndex > (zIndexMax + count)) {
+                                        for (i = 0; i <= count-1; i++) {
+                                            $(sets.data.liList[i]).css('z-index', $(sets.data.liList[i]).css('z-index') - zIndexMax);
+                                        }
+                                        sets.data.zIndex = count + 1;
                                     }
-                                    sets.data.zIndex = count + 1;
-                                }
+                                });
                             });
                         };
                     break;
